@@ -1,28 +1,15 @@
-const allSlides = Array.from(document.querySelectorAll(".slider__item")); 
-const slidePrev = document.querySelector('.slider__arrow_prev');
-const slideNext = document.querySelector('.slider__arrow_next');
+let element = document.getElementById("modal_main");
+    element.classList.add("modal_active");
 
-//const currentSlide = allSlides.findIndex(el => el.classList.contains('slider__item_active'))
+document.querySelector('.btn').addEventListener('click', function() {
+    document.getElementById('modal_main').classList.remove("modal_active");
+    document.getElementById('modal_success').classList.add("modal_active");
+});
 
-function nextSlide() {
-    let currentSlide = allSlides.findIndex(el => el.classList.contains('slider__item_active'))
-    goToSlide(currentSlide + 1);
+let modalClose = document.querySelectorAll(".modal__close");
+
+for (let e of modalClose){
+    e.addEventListener('click',() => {
+        e.closest('.modal').classList.remove("modal_active");
+   })
 }
-
-function previousSlide() {
-    let currentSlide = allSlides.findIndex(el => el.classList.contains('slider__item_active'))
-    goToSlide(currentSlide - 1);
-}
-
-function goToSlide(n) {
-    let currentSlide = allSlides.findIndex(el => el.classList.contains('slider__item_active'))
-    allSlides[currentSlide].classList.remove('slider__item_active')    
-    currentSlide = (n + allSlides.length) % allSlides.length;       
-    allSlides[currentSlide].classList.add('slider__item_active')    
-}
-slideNext.onclick = function() {
-    nextSlide();
-};
-slidePrev.onclick = function() {
-    previousSlide();
-};
