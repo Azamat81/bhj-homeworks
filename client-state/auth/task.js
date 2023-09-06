@@ -7,7 +7,7 @@ let singIn = document.getElementById('signin');
 if (localStorage.getItem('user_id')) {
     singIn.classList.remove('signin_active');
     welcom.classList.add('welcome_active');
-    userId.innerText = localStorage.userId;
+    userId.innerText = localStorage.getItem('user_id');
   } 
 
     signinForm.addEventListener ('submit', (el) => {
