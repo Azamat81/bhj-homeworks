@@ -4,7 +4,7 @@ let welcom = document.getElementById('welcome');
 let signinForm = document.getElementById('signin__form');
 let singIn = document.getElementById('signin');
 
-if (localStorage.userId) {
+if (localStorage.getItem('user_id')) {
     singIn.classList.remove('signin_active');
     welcom.classList.add('welcome_active');
     userId.innerText = localStorage.userId;
